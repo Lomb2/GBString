@@ -1,4 +1,4 @@
-# GBSTR
+# GBString
 GBString is a C++ library for std::string variable management. 
 
 
