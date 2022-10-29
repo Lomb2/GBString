@@ -74,11 +74,11 @@ public:
     //Replaces every character in the string for other character from "start" to "end" (both included)
     void replaceCharInRange(std::string& str, char original, char replace, unsigned int start, unsigned int end);
 
-    //Replaces all substrings with the same value as "original" with "replace"
+    //Replaces all substrings with the same value as the first one with the second one
     void replace(std::string& str, std::string original, std::string replace);
 
-    //Removes every character in the string with the same value as "c"
-    void removeChar(std::string& str, char c);
+    //Replaces all substrings with se same value as the firts ones with the second ones
+    void replace(std::string& str, std::map<std::string, std::string> substrs);
 
     //Encrypts the string with a key
     void encrypt(std::string& str, std::string key);
