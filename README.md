@@ -5,7 +5,7 @@ GBString is a C++ library for std::string variable management.
 ## PURPOSE
 This little library contains many useful methods for string management, all in only one singleton!
 
-You may want to insert a substring inside other, or count how many times a substring is duplicated in a string, or maybe replace the same character... and end with a lot of StackOverflow functions dirtying your project, GBString is the solution!
+You may want to insert a substring inside other, or count how many times a substring is duplicated in a string, or maybe replace the same character... and end with a lot of StackOverflow functions dirtying your project, well, GBString is the solution!
 
 ## 
 
