@@ -85,14 +85,7 @@ bool GBString::containsChar(std::string str, std::vector<char> chars)
 
 void GBString::eraseChar(std::string& str, char c)
 {
-    std::string result;
-
-    for (int i = 0; i < str.length(); i++)
-    {
-        if (str[i] != c) result += str[i];
-    }
-
-    str = result;
+    replaceChar(str, c, '\0');
 }
 
 void GBString::eraseChars(std::string& str, std::vector<char> chars)
@@ -132,11 +125,6 @@ void GBString::replaceCharInRange(std::string& str, char original, char replace,
     replaceChar(substr2, original, replace);
 
     str = substr1 + substr2 + substr3;
-}
-
-void GBString::removeChar(std::string& str, char c)
-{
-    replaceChar(str, c, '\0');
 }
 
 std::vector<unsigned int> GBString::getIndexList(std::string key)
@@ -241,6 +229,14 @@ void GBString::replace(std::string& str, std::string original, std::string repla
     }
 }
 
+void GBString::replace(std::string& str, std::map<std::string, std::string> substrs)
+{
+    for (auto& sbs : substrs)
+    {
+        replace(str, sbs.first, sbs.second);
+    }
+}
+
 bool GBString::search(std::string str, std::string search)
 {
     if (strstr(str.c_str(), search.c_str())) return true;
@@ -281,26 +277,22 @@ int GBString::count(std::string str, char c)
 
 int GBString::count(std::string str, std::string substr)
 {
-    int count = 0;
-    int i = 0;
+    unsigned int i = 0, j = 0, count = 0;
+    std::string _substr = "";
 
     while (i < str.length())
     {
-        if (str[i] == substr[0] && str[i + substr.length() - 1] == substr[substr.length() - 1])
+        if (str[i] == substr[j])
         {
-            std::string _substr = "";
+            _substr += str[i];
+            j++;
+        }
 
-            int k = i;
-
-            while (i < substr.length() + k)
-            {
-                _substr += str[i];
-                i++;
-            }
-
-            if (_substr == substr) count++;
-
-            i = k;
+        if (j == substr.length() && _substr == substr)
+        {
+            _substr = "";
+            count++;
+            j = 0;
         }
 
         i++;
