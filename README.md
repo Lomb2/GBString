@@ -9,7 +9,7 @@ You may want to insert a substring inside other, or count how many times a subst
 
 ## Example 1:
 
-The following code changes "Im using ??? to edit this!" to "Im using GBString to edit this!". First searchs all the positions of the '?' character, then cuts the string
+The following code changes "Im using ??? to edit this!" to "Im using GBString to edit this!". First searchs all the positions of the '?' characters, then cuts the string
 from poslist[0] (the first '?' position found in the string) to poslist.back() (the last '?' position found in the string), then inserts in poslist[0] the substring "GBString".
 ```
 std::string str = "Im using ??? to edit this!";
